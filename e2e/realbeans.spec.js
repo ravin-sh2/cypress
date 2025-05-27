@@ -9,7 +9,7 @@ describe('RealBeans Shopify Store Tests', () => {
     cy.url().should('eq', storeUrl + '/');
 
     // Accept cookies if the consent banner appears
-    cy.get('button#onetrust-accept-btn-handler, button:contains("Accept"), button:contains("Accept All")', { timeout: 10000 })
+    cy.get('[data-modal-cancel-button-title], button:contains("Cancel"), button:contains("Cancel All")', { timeout: 10000 })
       .then($btn => {
         if ($btn.length > 0) {
           cy.wrap($btn).click();
